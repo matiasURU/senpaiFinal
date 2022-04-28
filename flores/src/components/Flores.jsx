@@ -50,10 +50,10 @@ export default function Flores() {
     <nav>
         <div>
             <Link to="/"> Home</Link>
+            <Link to="/signin"> Login</Link>
             <Link to="/signup"> Registro</Link>
             <Link to="/about"> About</Link>
             <Link to="/contacto"> Contacto</Link>
-            <a rel="noreferrer" target="_blank" href="https://senpaiacademy.com/uy/">Senpai Academy</a>
         </div>
     </nav>
       </React.Fragment>
