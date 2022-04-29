@@ -6,7 +6,6 @@ const Op = db.Sequelize.Op;
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
 exports.signup = (req, res) => {
-  console.log("mortadela")
   User.create({
     username: req.body.username,
     email: req.body.email,
@@ -26,7 +25,6 @@ exports.signup = (req, res) => {
           });
         });
       } else {
-        // user role = 1
         user.setRoles([1]).then(() => {
           res.send({ message: "Usuario registrado con éxito" });
         });

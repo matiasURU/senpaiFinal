@@ -6,7 +6,6 @@ const API_URL = "http://localhost:8080/api/auth/signup";
 
 async function mortadela() {
   let user = document.querySelector("#user").value;
-  console.log(user);
   let email = document.querySelector("#email").value;
   let password = document.querySelector("#password").value;
   let rol = document.querySelector("#rol").value;

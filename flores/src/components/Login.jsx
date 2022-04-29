@@ -11,8 +11,6 @@ function Login() {
   async function mortadela2() {
     let user = document.querySelector("#user").value;
     let password = document.querySelector("#password").value;
-    console.log(user);
-    console.log(password);
     const { data } = await axios.post(API_URL, {
       username:user,
       password,

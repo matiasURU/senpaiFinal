@@ -49,5 +49,5 @@ app.listen(PORT, () => {
 const db = require("./models");
 const Role = db.role;
 db.sequelize.sync().then(() => {
-  console.log("Sync");
+  console.log("Sincronizando base de datos");
 });
