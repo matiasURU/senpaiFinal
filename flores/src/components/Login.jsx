@@ -20,17 +20,13 @@ function Login() {
     return data;
   }
 
-
-
   const handleSubmit = (event) => {
     event.preventDefault();
     let datos = mortadela2()
     datos.then( (res)=> {
-      if (res.id){
-        setIsSubmitted(true);
-      } else{
-        setErrorMessages({ name: "pass", message: "Pa se rompio todo" });
-      }
+      if (res.id) setIsSubmitted(true);
+    }).catch((res) =>  {
+      setErrorMessages({ name: "pass", message: "Datos incorrectos"});
     })
   };
 
