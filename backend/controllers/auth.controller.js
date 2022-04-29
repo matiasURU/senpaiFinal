@@ -37,6 +37,8 @@ exports.signup = (req, res) => {
     });
 };
 exports.signin = (req, res) => {
+  console.log(req.body);
+ 
   User.findOne({
     where: {
       username: req.body.username
@@ -44,14 +46,14 @@ exports.signin = (req, res) => {
   })
     .then(user => {
       if (!user) {
-        return res.status(404).send({ message: "Usuario no encontrado." });
+        console.log(req.body.username + " no existe");        return res.status(500).send({ message: "Usuario no encontrado." });
       }
       var passwordIsValid = bcrypt.compareSync(
         req.body.password,
         user.password
       );
       if (!passwordIsValid) {
-        return res.status(401).send({
+        return res.status(500).send({
           accessToken: null,
           message: "Contraseña incorrecta"
         });
@@ -75,5 +77,6 @@ exports.signin = (req, res) => {
     })
     .catch(err => {
       res.status(500).send({ message: err.message });
+      console.log("error general");
     });
 };

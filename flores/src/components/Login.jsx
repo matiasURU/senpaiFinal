@@ -11,44 +11,27 @@ function Login() {
   async function mortadela2() {
     let user = document.querySelector("#user").value;
     let password = document.querySelector("#password").value;
-    axios.post(API_URL, {
+    console.log(user);
+    console.log(password);
+    const { data } = await axios.post(API_URL, {
       username:user,
-      password
-    }).then(res => console.log(res.data));
+      password,
+    });
+    return data;
   }
 
-  const database = [
-    {
-      username: "user1",
-      password: "pass1"
-    },
-    {
-      username: "user2",
-      password: "pass2"
-    }
-  ];
 
-  const errors = {
-    uname: "invalid username",
-    pass: "invalid password"
-  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    var { uname, pass } = document.forms[0];
-
-    const userData = database.find((user) => user.username === uname.value);
-
-    if (userData) {
-      if (userData.password !== pass.value) {
-        setErrorMessages({ name: "pass", message: errors.pass });
-      } else {
+    let datos = mortadela2()
+    datos.then( (res)=> {
+      if (res.id){
         setIsSubmitted(true);
+      } else{
+        setErrorMessages({ name: "pass", message: "Pa se rompio todo" });
       }
-    } else {
-      setErrorMessages({ name: "uname", message: errors.uname });
-    }
+    })
   };
 
   const renderErrorMessage = (name) =>
@@ -75,6 +58,7 @@ function Login() {
       </form>
     </div>
   );
+  
 
   return (
     <div className="app">

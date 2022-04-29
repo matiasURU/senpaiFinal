@@ -16,17 +16,25 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
+
 //RUTAS
+
+//Registro
 app.post(
   "/api/auth/signup",
   [verifySignUp.checkDuplicateUsernameOrEmail, verifySignUp.checkRolesExisted],
   
   controller.signup
 );
+//Inicio sesion
 app.post("/api/auth/signin", controller.signin);
+
+//Home Flores
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "build", "index.html"));
 });
+
+
 const PORT = process.env.PORT || 8080;
 
 
