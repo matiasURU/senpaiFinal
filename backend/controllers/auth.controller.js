@@ -22,13 +22,13 @@ exports.signup = (req, res) => {
           }
         }).then(roles => {
           user.setRoles(roles).then(() => {
-            res.send({ message: "User was registered successfully!" });
+            res.send({ message: "Usuario registrado con éxito" });
           });
         });
       } else {
         // user role = 1
         user.setRoles([1]).then(() => {
-          res.send({ message: "User was registered successfully!" });
+          res.send({ message: "Usuario registrado con éxito" });
         });
       }
     })
@@ -37,8 +37,6 @@ exports.signup = (req, res) => {
     });
 };
 exports.signin = (req, res) => {
-  console.log(req.body);
- 
   User.findOne({
     where: {
       username: req.body.username
@@ -46,13 +44,15 @@ exports.signin = (req, res) => {
   })
     .then(user => {
       if (!user) {
-        console.log(req.body.username + " no existe");        return res.status(418).send({ message: "Usuario no encontrado." });
+        console.log(req.body.username + " no existe");
+        return res.status(418).send({ message: "Usuario no encontrado." });
       }
       var passwordIsValid = bcrypt.compareSync(
         req.body.password,
         user.password
       );
       if (!passwordIsValid) {
+        console.log("Contraseña incorrecta");
         return res.status(418).send({
           accessToken: null,
           message: "Contraseña incorrecta"
@@ -77,6 +77,5 @@ exports.signin = (req, res) => {
     })
     .catch(err => {
       res.status(418).send({ message: err.message });
-      console.log("error general");
     });
 };
