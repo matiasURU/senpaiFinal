@@ -10,11 +10,12 @@ export default function RouterPage() {
     return (
         <Router>
             <Routes>
-                <Route path='/' exact element={<Flores />} />
+                <Route path='/' exact element={<Login />} />
+                <Route path='/home' exact element={<Flores />} />
                 <Route path='/signin' exact element={<Login />} />
                 <Route path='/signup' exact element={<Registro />} />
-                <Route path='/about' exact element={<About />} />
                 <Route path='/contacto' exact element={<Contacto />} />
+                <Route path='/about' exact element={<About />} />
             </Routes>
         </Router>
     )

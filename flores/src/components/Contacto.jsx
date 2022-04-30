@@ -100,11 +100,11 @@ export default class Contacto extends Component {
         </aside>
         <nav>
           <div>
-            <Link to="/"> Home</Link>
+            <Link to="/home"> Home</Link>
             <Link to="/signin"> Login</Link>
             <Link to="/signup"> Registro</Link>
-            <Link to="/about"> About</Link>
             <Link to="/contacto"> Contacto</Link>
+            <Link to="/about"> About</Link>
           </div>
         </nav>
       </React.Fragment>
