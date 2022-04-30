@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const API_URL = "http://localhost:8080/api/auth/signin";
 
-
-function Login() {
+const Login = () => {
   const [errorMessages, setErrorMessages] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -32,37 +32,55 @@ function Login() {
     name === errorMessages.name && (
       <div className="error">{errorMessages.message}</div>
     );
-
-  const renderForm = (
-    <div className="form">
-      <form onSubmit={handleSubmit}>
-        <div className="input-container">
-          <label>Username </label>
-          <input id="user" type="text" name="uname" required />
-          {renderErrorMessage("uname")}
-        </div>
-        <div className="input-container">
-          <label>Password </label>
-          <input id="password" type="password" name="pass" required />
-          {renderErrorMessage("pass")}
-        </div>
-        <div className="button-container">
-          <input type="submit" />
-        </div>
-      </form>
-    </div>
-  );
-  
-
-  return (
-    <div className="app">
-      <div className="login-form">
-        <div className="title">Sign In</div>
-        {isSubmitted ? <div><h1>Inicio de sesión exitoso</h1></div> : renderForm}
+    const renderForm = (
+      <div className="form">
+        <form onSubmit={handleSubmit}>
+          <div className="input-container">
+            <label>Usuario </label>
+            <input id="user" type="text" name="uname" required />
+            {renderErrorMessage("uname")}
+          </div>
+          <div className="input-container">
+            <label>Contraseña </label>
+            <input id="password" type="password" name="pass" required />
+            {renderErrorMessage("pass")}
+          </div>
+          <div className="button-container">
+            <input type="submit" />
+          </div>
+        </form>
       </div>
-    </div>
-  );
+    );
+  
+  return (
+    <React.Fragment>
+    <header>
+    <div className="app">
+        <div className="login-form">
+          <div className="title">Sign In</div>
+          {isSubmitted ? <div><h1>Inicio de sesión exitoso</h1></div> : renderForm}
+        </div>
+      </div>
+    </header>
+    <aside>
+        <img src="assets/img/Wikipedia-logo.svg" alt="wikipedia logo" />
+        <h2>Flora de Uruguay</h2>
+        <h3>Lista de especies florales que se pueden encontrar en Uruguay y que son nativas de la región.</h3>
+        <form action="https://es.wikipedia.org/wiki/Anexo:Especies_de_la_flora_nativa_de_Uruguay" id="info">
+            <button>Aprender más</button>
+        </form>
+    </aside>
+    <nav>
+        <div>
+            <Link to="/"> Home</Link>
+            <Link to="/signin"> Login</Link>
+            <Link to="/signup"> Registro</Link>
+            <Link to="/about"> About</Link>
+            <Link to="/contacto"> Contacto</Link>
+        </div>
+    </nav>
+</React.Fragment>
+  )
 }
-
 
 export default Login;

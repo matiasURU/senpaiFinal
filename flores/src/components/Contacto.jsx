@@ -48,7 +48,7 @@ export default class Contacto extends Component {
                   </div>
                   <div className="form-group col-md-6">
                     <label>
-                      <b>Email</b>
+                      <b>Correo electrónico</b>
                     </label>
                     <input
                       type="text"
