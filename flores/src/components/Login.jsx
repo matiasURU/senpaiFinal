@@ -26,7 +26,7 @@ const Login = () => {
         if (res.id) setIsSubmitted(true);
       })
       .catch((res) => {
-        setErrorMessages({ name: "pass", message: "Datos incorrectos" });
+        setErrorMessages({ name: "pass", message: "Datos incorrectos o usuario no registrado" });
       });
   };
 
