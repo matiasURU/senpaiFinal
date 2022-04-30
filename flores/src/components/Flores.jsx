@@ -98,10 +98,9 @@ export default function Flores() {
       <nav>
         <div>
           <Link to="/home"> Home</Link>
-          <Link to="/signin"> Login</Link>
-          <Link to="/signup"> Registro</Link>
+          <Link to="/signin"> Iniciar sesión</Link>
           <Link to="/contacto"> Contacto</Link>
-          <Link to="/about"> About</Link>
+          <Link to="/about"> Sobre nosotros</Link>
         </div>
       </nav>
     </React.Fragment>

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const API_URL = "http://localhost:8080/api/auth/signup";
 
-async function mortadela() {
+async function crearCuenta() {
   let user = document.querySelector("#user").value;
   let email = document.querySelector("#email").value;
   let password = document.querySelector("#password").value;
@@ -30,6 +30,7 @@ const Registro = () => {
               padding: "10px",
             }}
           >
+            <div><h1>Crear cuenta </h1></div>
             <div>
               <form>
                 <label>
@@ -54,7 +55,7 @@ const Registro = () => {
                     <option value="admin">Administrador</option>
                   </select>
                 </label>
-                <button onClick={() => mortadela()}>Registrarse</button>
+                <button onClick={() => crearCuenta()}>Registrarse</button>
               </form>
             </div>
           </div>
@@ -77,10 +78,9 @@ const Registro = () => {
       <nav>
         <div>
           <Link to="/home"> Home</Link>
-          <Link to="/signin"> Login</Link>
-          <Link to="/signup"> Registro</Link>
+          <Link to="/signin"> Iniciar sesión</Link>
           <Link to="/contacto"> Contacto</Link>
-          <Link to="/about"> About</Link>
+          <Link to="/about"> Sobre nosotros</Link>
         </div>
       </nav>
     </React.Fragment>

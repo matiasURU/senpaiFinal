@@ -8,7 +8,7 @@ const Login = () => {
   const [errorMessages, setErrorMessages] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  async function mortadela2() {
+  async function ingresar() {
     let user = document.querySelector("#user").value;
     let password = document.querySelector("#password").value;
     const { data } = await axios.post(API_URL, {
@@ -20,13 +20,16 @@ const Login = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    let datos = mortadela2();
+    let datos = ingresar();
     datos
       .then((res) => {
         if (res.id) setIsSubmitted(true);
       })
       .catch((res) => {
-        setErrorMessages({ name: "pass", message: "Datos incorrectos o usuario no registrado" });
+        setErrorMessages({
+          name: "pass",
+          message: "Datos incorrectos o usuario no registrado",
+        });
       });
   };
 
@@ -50,6 +53,11 @@ const Login = () => {
         <div className="button-container">
           <input type="submit" />
         </div>
+        <div><h1></h1>
+          <h2>
+            <Link to="/signup"> Registrarse</Link>
+          </h2>
+        </div>
       </form>
     </div>
   );
@@ -59,7 +67,7 @@ const Login = () => {
       <header>
         <div className="app">
           <div className="login-form">
-            <div className="title">Sign In</div>
+            <div className="title">Iniciar sesión</div>
             {isSubmitted ? (
               <div>
                 <h1>Inicio de sesión exitoso</h1>
@@ -87,10 +95,9 @@ const Login = () => {
       <nav>
         <div>
           <Link to="/home"> Home</Link>
-          <Link to="/signin"> Login</Link>
-          <Link to="/signup"> Registro</Link>
+          <Link to="/signin"> Iniciar sesión</Link>
           <Link to="/contacto"> Contacto</Link>
-          <Link to="/about"> About</Link>
+          <Link to="/about"> Sobre nosotros</Link>
         </div>
       </nav>
     </React.Fragment>
