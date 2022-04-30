@@ -53,7 +53,7 @@ const Login = () => {
         <div className="button-container">
           <input type="submit" />
         </div>
-        <div><h1></h1>
+        <div>
           <h2>
             <Link to="/signup"> Registrarse</Link>
           </h2>
