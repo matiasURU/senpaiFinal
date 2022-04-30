@@ -10,7 +10,7 @@ async function crearCuenta() {
   let password = document.querySelector("#password").value;
   let rol = document.querySelector("#rol").value;
   axios.post(API_URL, {
-    username:user,
+    username: user,
     email,
     password,
     rol,
@@ -30,7 +30,9 @@ const Registro = () => {
               padding: "10px",
             }}
           >
-            <div><h1>Crear cuenta </h1></div>
+            <div>
+              <h1>Crear cuenta </h1>
+            </div>
             <div>
               <form>
                 <label>
@@ -56,6 +58,11 @@ const Registro = () => {
                   </select>
                 </label>
                 <button onClick={() => crearCuenta()}>Registrarse</button>
+                <div className="boton2">
+                  <h2>
+                    <Link to="/signin"> Iniciar sesión</Link>
+                  </h2>
+                </div>
               </form>
             </div>
           </div>

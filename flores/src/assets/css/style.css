@@ -183,6 +183,11 @@ form h2 {
   padding: 35px;
 }
 
+.boton2 {
+  padding-top: 15px;
+  display: inline-block;
+}
+
 form label {
   display: inline-block;
   width: 150px;
@@ -275,7 +280,7 @@ input[type="submit"]:hover {
 @media (max-width: 950px) {
   #root {
     display: grid;
-    grid-template-rows: 0.2fr 1fr 1fr;
+    grid-template-rows: 0.1fr 1fr 1fr;
     grid-template-columns: 1fr;
     grid-template-areas: "nav" "header" "aside";
   }
